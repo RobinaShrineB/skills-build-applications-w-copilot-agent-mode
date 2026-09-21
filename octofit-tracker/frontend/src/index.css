@@ -109,3 +109,31 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+:root {
+  --ink: #17221d;
+  --muted: #65736b;
+  --paper: #f4f0e7;
+  --panel: #fffdf8;
+  --line: #d8ddd3;
+  --green: #1c6b4c;
+  --lime: #d8f36a;
+  --coral: #f0785e;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  letter-spacing: 0;
+}
+
+body {
+  background: var(--paper);
+}
+
+#root {
+  width: 100%;
+  max-width: 1320px;
+  border: 0;
+  text-align: left;
+}
