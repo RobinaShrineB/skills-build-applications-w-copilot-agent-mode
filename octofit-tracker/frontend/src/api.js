@@ -15,7 +15,7 @@ function collectionFrom(payload) {
   return []
 }
 
-export function useApiCollection(resource) {
+export function useApiCollection(resource, endpoint) {
   const [state, setState] = useState({ data: [], loading: true, error: '' })
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function useApiCollection(resource) {
 
     async function loadResource() {
       try {
-        const response = await fetch(`${API_BASE_URL}/api/${resource}/`, {
+        const response = await fetch(endpoint || `${API_BASE_URL}/api/${resource}/`, {
           signal: controller.signal,
         })
         if (!response.ok) throw new Error(`Request failed (${response.status})`)
@@ -38,7 +38,7 @@ export function useApiCollection(resource) {
 
     loadResource()
     return () => controller.abort()
-  }, [resource])
+  }, [endpoint, resource])
 
   return state
 }

@@ -1,7 +1,11 @@
-import { displayDate, useApiCollection } from '../api.js'
+import { API_BASE_URL, displayDate, useApiCollection } from '../api.js'
+
+const ACTIVITIES_API_URL = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+  : `${API_BASE_URL}/api/activities/`
 
 function Activities() {
-  const { data, loading, error } = useApiCollection('activities')
+  const { data, loading, error } = useApiCollection('activities', ACTIVITIES_API_URL)
 
   return (
     <CollectionPage eyebrow="ACTIVITY LOG" title="Keep the streak visible." description="A live feed of the work your team has put in.">
